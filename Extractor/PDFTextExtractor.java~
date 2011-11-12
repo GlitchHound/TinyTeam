@@ -1,0 +1,26 @@
+import org.apache.pdfbox.util.PDFTextStripper;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import java.io.*;
+
+
+public class PDFTextExtractor
+{
+   private PDDocument document;
+	private String pathName;
+	   
+	public PDFTextExtractor(String filename) throws IOException
+	{  
+	   pathName = filename; //Need to validate pathName, atm errors will propogate.
+	   document = null;
+	}
+	
+	public String getAllText()
+	{
+	   PDFTextStripper sexyStripper = new PDFTextStripper();
+	   document = new PDDocument();
+	   
+	   document.load(new File(pathName));
+	   
+	   return sexyStripper.getText(document); 
+	}
+}
