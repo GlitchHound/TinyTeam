@@ -5,17 +5,11 @@ public class ReadCommon {
 private final File commonFile;
 String val;
 List<String> arr = new ArrayList<String>();
-
-  public static void main(String... aArgs) throws FileNotFoundException
-  	{
-  	ReadCommon parser = new ReadCommon("/Users/JamesTrever/Developing/test.txt");
-  	parser.processLineByLine();
-  	}
   
-  //Test is the file name of the common words
-  public ReadCommon(String test)
+  public ReadCommon(String test) throws FileNotFoundException
   	{
-  	commonFile = new File(test);  
+  	commonFile = new File(test);
+  	processLineByLine();
   	}
   
   public final void processLineByLine() throws FileNotFoundException
